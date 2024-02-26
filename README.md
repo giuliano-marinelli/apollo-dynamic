@@ -1,4 +1,4 @@
-# Apollo Dynamic [![npm version](https://badge.fury.io/js/apollo-angular.svg)](https://badge.fury.io/js/apollo-dynamic)
+# Apollo Dynamic [![npm version](https://badge.fury.io/js/apollo-dynamic.svg)](https://badge.fury.io/js/apollo-dynamic)
 
 Apollo Dynamic allows to create dynamic selection sets on queries, mutations and subscriptions when using [`@apollo/client`](https://github.com/apollographql/apollo-client) for consult GraphQL resolvers. It works by decorating entity classes with `@SelectionType` and `@SelectionField` which allows to fabric dynamics selections set with a similar syntax as TypeORM repositories (relations).
 

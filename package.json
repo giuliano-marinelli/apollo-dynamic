@@ -1,7 +1,7 @@
 {
   "name": "apollo-dynamic",
-  "version": "1.0.0",
-  "description": "Apollo utility to create dynamic selection sets on queries, mutations and subscriptions, based on decorated schema",
+  "version": "1.0.1",
+  "description": "Apollo utility to create dynamic selection sets on queries, mutations and subscriptions, based on decorated schema.",
   "author": "Giuliano Marinelli",
   "license": "MIT",
   "main": "dist/index",
@@ -27,9 +27,9 @@
   "peerDependencies": {
     "graphql": ">=16.8.1"
   },
-  "homepage": "https://github.com/giuliano-marinelli/nestjs-graphql-filter#readme",
+  "homepage": "https://github.com/giuliano-marinelli/apollo-dynamic#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/giuliano-marinelli/nestjs-graphql-filter"
+    "url": "https://github.com/giuliano-marinelli/apollo-dynamic"
   }
 }

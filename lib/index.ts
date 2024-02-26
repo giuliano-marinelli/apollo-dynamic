@@ -1,8 +1,11 @@
 import { ApolloDynamic, ApolloDynamicFactory, select } from './builder/apollo-dynamic.factory';
-import { FieldOptions, ReturnTypeFunc, SelectionField } from './decorators/selection-field.decorator';
-import { SelectionType } from './decorators/selection-type.decorator';
+import { SelectionType, TypeOptions } from './decorators/selection-type.decorator';
+import { SelectionField, FieldOptions, ReturnTypeFunc } from './decorators/selection-field.decorator';
+import { SelectionOptions } from './types/selection-options';
 
 //builder
 export { ApolloDynamic, ApolloDynamicFactory, select };
 //decorators
-export { SelectionType, SelectionField, FieldOptions, ReturnTypeFunc };
+export { SelectionType, SelectionField };
+//types
+export { SelectionOptions, TypeOptions, FieldOptions, ReturnTypeFunc };

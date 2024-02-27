@@ -14,8 +14,6 @@ export class ApolloDynamicFactory {
 export const ApolloDynamic = new ApolloDynamicFactory();
 
 export function select(document: DocumentNode, selectionOptions?: SelectionOptions): DocumentNode {
-  console.log('types', ApolloDynamic.types);
-
   let cacheKey: string = '';
   let cacheContent: string = '';
   let cachedDocuments: any = {};
@@ -56,11 +54,8 @@ export function select(document: DocumentNode, selectionOptions?: SelectionOptio
     let dynDocument = parse(print(document));
 
     const selectionFields = {};
-    console.log('document', print(dynDocument));
     scanSelectionFields(dynDocument, selectionFields);
-    console.log('scan', print(dynDocument));
     dynDocument = replaceSelectionFields(dynDocument, selectionFields, selectionOptions || {});
-    console.log('replace', print(dynDocument));
 
     if (ApolloDynamic.cache) {
       cachedDocuments[cacheKey] = {};

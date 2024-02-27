@@ -8,12 +8,14 @@ export class ApolloDynamicFactory {
   selectionFields: any = {};
   types: any = {};
   default: { [key: string]: SelectionOptions } = {};
-  cache: boolean = true;
+  cache: boolean = false;
 }
 
 export const ApolloDynamic = new ApolloDynamicFactory();
 
 export function select(document: DocumentNode, selectionOptions?: SelectionOptions): DocumentNode {
+  console.log('types', ApolloDynamic.types);
+
   let cacheKey: string = '';
   let cacheContent: string = '';
   let cachedDocuments: any = {};
@@ -54,8 +56,11 @@ export function select(document: DocumentNode, selectionOptions?: SelectionOptio
     let dynDocument = parse(print(document));
 
     const selectionFields = {};
+    console.log('document', print(dynDocument));
     scanSelectionFields(dynDocument, selectionFields);
+    console.log('scan', print(dynDocument));
     dynDocument = replaceSelectionFields(dynDocument, selectionFields, selectionOptions || {});
+    console.log('replace', print(dynDocument));
 
     if (ApolloDynamic.cache) {
       cachedDocuments[cacheKey] = {};
@@ -83,8 +88,10 @@ function scanSelectionFields(document: DocumentNode | DefinitionNode | Selection
         scanSelectionFields(field, fields);
       });
     } else {
-      if (!fields[document.name.value]) fields[document.name.value] = uuid();
-      (document as any).name.value = fields[document.name.value];
+      if (ApolloDynamic.types[document.name.value]) {
+        if (!fields[document.name.value]) fields[document.name.value] = uuid();
+        (document as any).name.value = fields[document.name.value];
+      }
     }
   }
 }
